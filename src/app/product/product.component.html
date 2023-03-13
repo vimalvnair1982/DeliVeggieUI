@@ -1,0 +1,57 @@
+
+<html>
+<form method="post">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="txtName">Product Name</label>
+        <input type="text" class="form-control" name="txtName" required placeholder="Name" [(ngModel)]="name" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="txtDescription">Product description</label>
+        <input type="text" class="form-control" name="txtDescription" placeholder="Description" [(ngModel)]="desc" required/>
+      </div>
+      
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="txtBrand">Product brand</label>
+        <input type="text" class="form-control" name="txtBrand" placeholder="Brand" [(ngModel)]="brand" required/>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="txtPrice">Product Price</label>
+        <input type="text" class="form-control" name="txtPrice" placeholder="Price" [(ngModel)]="price"  required/>
+      </div>
+      
+    </div>
+    <label style="color:red">{{result}}</label>
+    <div class="col-md-3 mb-3">
+    <button class="btn btn-primary" type="submit" (click)="AddProduct()">Submit form</button>
+  </div>
+    
+  </form>
+
+  
+    
+   
+   
+    <Label style="color: Blue;"><b>LIST OF PRODUCTS</b></Label>
+    <div class="list-group" *ngFor="let product of productList">
+      <button type="button" id={{product.id}} (click)="GetDetails(product.id);" class="list-group-item list-group-item-action ">
+        {{product.name}}
+      </button>
+      
+    </div>
+    <div class="form-row" *ngIf="productDesc">
+      <div class="col-md-4 mb-3">
+        <label><b>Description :</b>{{productDesc}}</label>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label><b>Brand :</b>{{productBrand}}</label>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label><b>Price :</b>{{productPrice}}</label>
+      </div>
+    </div>
+
+ 
+  </html>
